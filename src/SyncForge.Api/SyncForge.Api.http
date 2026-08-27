@@ -1,0 +1,6 @@
+@SyncForge.Api_HostAddress = http://localhost:5279
+
+GET {{SyncForge.Api_HostAddress}}/health
+Accept: text/plain
+
+###
