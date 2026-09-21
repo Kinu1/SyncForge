@@ -3,7 +3,7 @@ using SyncForge.Api.Application.DTOs.Responses;
 using SyncForge.Api.Application.Interfaces.Persistence;
 using SyncForge.Api.Application.Interfaces.Services;
 using SyncForge.Api.Domain.Entities;
-using SyncForge.Api.Domain.Exceptions;
+using SyncForge.Api.Application.Exceptions;
 using SyncForge.Api.Domain.ValueObjects;
 
 namespace SyncForge.Api.Application.Services;
@@ -35,8 +35,8 @@ public sealed class ContactService : IContactService
 
         if (contactAlreadyExists)
         {
-            throw new DomainValidationException(
-                "Já existe um contato cadastrado com este e-mail.");
+           throw new ContactConflictException(
+            "Já existe um contato cadastrado com este e-mail.");
         }
 
         var contact = Contact.Create(

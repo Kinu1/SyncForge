@@ -10,6 +10,6 @@ public sealed record ContactResponse(
     string? HubSpotContactId,
     int SyncAttemptCount,
     DateTimeOffset CreatedAt,
-    DateTimeOffset UpdateAt,
+    DateTimeOffset UpdatedAt,
     DateTimeOffset? LastSyncedAt
 );
