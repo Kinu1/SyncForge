@@ -1,6 +1,66 @@
 @SyncForge.Api_HostAddress = http://localhost:5279
 
+### Verificar se a aplicação está respondendo
+
 GET {{SyncForge.Api_HostAddress}}/health
 Accept: text/plain
+
+### Cadastrar um contato
+
+POST {{SyncForge.Api_HostAddress}}/api/contacts
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": " Pedro.Http@Example.com ",
+  "firstName": " Pedro ",
+  "lastName": " Silva ",
+  "phone": "11999999999"
+}
+
+### Tentar cadastrar o mesmo e-mail normalizado
+
+POST {{SyncForge.Api_HostAddress}}/api/contacts
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "pedro.http@example.com",
+  "firstName": "Outro nome",
+  "lastName": "Silva",
+  "phone": "11888888888"
+}
+
+### Enviar um e-mail inválido
+
+POST {{SyncForge.Api_HostAddress}}/api/contacts
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "email-invalido",
+  "firstName": "Pedro"
+}
+
+### Enviar um e-mail vazio
+
+POST {{SyncForge.Api_HostAddress}}/api/contacts
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "",
+  "firstName": "Pedro"
+}
+
+### Enviar JSON malformado de propósito
+
+POST {{SyncForge.Api_HostAddress}}/api/contacts
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email":
+}
 
 ###
